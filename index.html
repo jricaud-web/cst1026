@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>California.SURFtrip_10.26 🌟🌊 | Oficial Site</title>
+  <meta name="description" content="Sitio oficial de la edición 2026 del Surf Trip anual en California. Fechas, basecamps, picos de surf, tripulación y planificador de fogón.">
+  
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="text-gradient-sunset" id="hero-title">California.SURFtrip_10.26<br><span class="emoji-text">🌟🌊</span></h1>
+      
+      <!-- Countdown Clock -->
+      <div class="countdown-container" id="countdown">
+        <div class="countdown-box">
+          <div class="countdown-num" id="days">--</div>
+          <div class="countdown-label" id="lbl-days">Días</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="hours">--</div>
+          <div class="countdown-label" id="lbl-hours">Horas</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="minutes">--</div>
+          <div class="countdown-label" id="lbl-mins">Mins</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="seconds">--</div>
+          <div class="countdown-label" id="lbl-secs">Segs</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- THE CREW SECTION -->
+    <section id="crew" class="reveal">
+      <div class="section-header">
+        <h2 class="text-gradient-sunset" id="crew-title">Crew 2026</h2>
+      </div>
+      
+      <div class="crew-grid" id="crew-grid-container">
+        <!-- Dynamically populated from texts.js -->
+      </div>
+    </section>
+
+    <!-- BASECAMPS SECTION -->
+    <section id="basecamps" class="reveal">
+      <div class="section-header">
+        <h2 class="text-gradient-ocean" id="basecamps-title">Campamentos Base</h2>
+        <p id="basecamps-subtitle">Nuestros centros de comando estratégicos a lo largo de la autopista PCH</p>
+      </div>
+      
+      <div class="basecamp-grid">
+        <!-- North Basecamp -->
+        <div class="glass-card camp-card north-camp">
+          <div class="camp-img-container">
+            <img src="assets/cap-leocarrillo.jpg" alt="Leo Carrillo Cap" class="camp-img">
+            <span class="camp-badge" id="north-camp-badge">North Basecamp</span>
+          </div>
+          <h3 class="camp-title" id="north-camp-title">Leo Carrillo State Campground</h3>
+          <div class="camp-parcela">
+            <span id="north-camp-loc">📍 Parcela 61</span>
+            <span>•</span>
+            <span id="north-camp-tagline">"Tierra Santa"</span>
+          </div>
+          <p class="camp-desc" id="north-camp-desc">
+            Un refugio sagrado protegido de la prisa del mundo, a metros de una de las derechas más largas del Sur de California. El bosque es tu amigo, la roca tu destino, y la vas a buscar.
+          </p>
+          <div class="camp-spots">
+            <h4 class="camp-spots-title" id="north-camp-spots-title">Picos accesibles:</h4>
+            <div class="spots-list-tags">
+              <span class="spot-tag" onclick="scrollToSpot('Leo Carrillo')">Leo Carrillo</span>
+              <span class="spot-tag" onclick="scrollToSpot('Stairs')">Stairs</span>
+              <span class="spot-tag" onclick="scrollToSpot('County Line')">County Line</span>
+              <span class="spot-tag" onclick="scrollToSpot('Zeroes')">Zeroes</span>
+              <span class="spot-tag" onclick="scrollToSpot('Ventura Point')">Ventura Point</span>
+              <span class="spot-tag" onclick="scrollToSpot('C Street')">C Street</span>
+              <span class="spot-tag" onclick="scrollToSpot('Rincon')">Rincon</span>
+              <span class="spot-tag" onclick="scrollToSpot('Malibu 1st Point')">Malibu 1st Point</span>
+              <span class="spot-tag" onclick="scrollToSpot('Sunset Point')">Sunset Point</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- South Basecamp -->
+        <div class="glass-card camp-card south-camp">
+          <div class="camp-img-container">
+            <img src="assets/carlsbad-campground.jpg" alt="Carlsbad Campground" class="camp-img">
+            <span class="camp-badge" id="south-camp-badge">South Basecamp</span>
+          </div>
+          <h3 class="camp-title" id="south-camp-title">South Carlsbad State Campground</h3>
+          <div class="camp-parcela">
+            <span id="south-camp-loc">📍 Parcela 206</span>
+            <span>•</span>
+            <span id="south-camp-tagline">"El Penthouse"</span>
+          </div>
+          <p class="camp-desc" id="south-camp-desc">
+            Rumbo al nuevo paisaje, donde el cielo se vuelve mar, donde el paso es más liviano, pues la ley es de libertad. El Expreso Horizonte, cargado de ilusiones, los lleva en sus vagones más allá. Volverán a correr, volverán a jugar, volverán a crecer, al comienzo volverán.
+          </p>
+          <div class="camp-spots">
+            <h4 class="camp-spots-title" id="south-camp-spots-title">Picos accesibles:</h4>
+            <div class="spots-list-tags">
+              <span class="spot-tag" onclick="scrollToSpot('Carlsbad')">Carlsbad</span>
+              <span class="spot-tag" onclick="scrollToSpot('Beacons')">Beacons</span>
+              <span class="spot-tag" onclick="scrollToSpot('Swamis')">Swamis</span>
+              <span class="spot-tag" onclick="scrollToSpot('Trestles')">Trestles</span>
+              <span class="spot-tag" onclick="scrollToSpot('San Onofre (Old Man\'s)')">San Onofre (Old Man's)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE MAP SECTION -->
+    <section id="map-section" class="map-section reveal">
+      <div class="section-header" style="position: relative; display: inline-block; width: 100%; text-align: center;">
+        <h2 class="text-gradient-sunset" id="route-title" style="display: inline-block; vertical-align: middle;">Pacific Coast Highway</h2>
+        <svg viewBox="0 0 300 200" width="28" height="18" style="border: 1px solid rgba(255,255,255,0.25); border-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.15); display: inline-block; vertical-align: middle; margin-left: 0.55rem; margin-top: -4px;">
+          <rect width="300" height="200" fill="#FFFFFF"/>
+          <rect y="166.7" width="300" height="33.3" fill="#B71A3C"/>
+          <polygon points="41,40 45,52 57,52 47,59 51,71 41,64 31,71 35,59 25,52 37,52" fill="#B71A3C"/>
+          <path d="M 100,105 C 105,100 110,100 115,102 C 120,104 125,102 130,95 C 135,90 145,88 155,90 C 165,92 170,88 175,85 C 180,82 185,85 190,92 C 193,88 198,87 202,90 C 206,93 205,97 200,100 C 197,102 195,105 197,108 C 200,111 202,113 205,115 C 202,117 197,115 193,113 C 188,118 185,123 182,130 C 180,132 178,134 175,134 C 172,134 170,132 168,128 C 165,125 160,125 158,128 C 156,131 154,133 151,133 C 148,133 146,131 144,127 C 141,123 138,122 135,124 C 132,126 130,129 127,130 C 124,131 122,129 120,126 C 117,122 113,120 109,122 C 105,124 102,127 98,125 C 95,123 93,118 95,113 C 97,108 95,106 100,105 Z" fill="#6C4E3D"/>
+          <ellipse cx="148" cy="138" rx="70" ry="8" fill="#557C3E"/>
+          <text x="150" y="156" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="11" letter-spacing="2.5" fill="#000000" text-anchor="middle">CALIFORNIA REPUBLIC</text>
+        </svg>
+        <p id="route-subtitle" style="margin-top: 0.5rem;">Exploraremos todo el Sur de California desde San Diego hasta Ventura.</p>
+      </div>
+      <div class="map-container-wrapper">
+        <div id="map"></div>
+        <div class="map-tip" id="route-tip">💡 Los marcadores azules corresponden al Norte; los naranjas corresponden al Sur.</div>
+      </div>
+    </section>
+
+    <!-- SURF SPOTS SECTION -->
+    <section id="surf-spots" class="reveal">
+      <div class="section-header">
+        <h2 class="text-gradient-ocean" id="spots-title">Picos Clave</h2>
+        <p id="spots-subtitle">Una selección curada de los picos más icónicos del Sur de California, historia viva de la cultura surfera.</p>
+      </div>
+      
+      <div class="spots-grid" id="spots-grid-container">
+        <!-- Spots will be dynamically injected here by app.js to keep layout clean & dry -->
+      </div>
+    </section>
+
+    <!-- PACKING LIST SECTION -->
+    <section id="packing" class="reveal" style="margin-bottom: 2rem;">
+      <div class="section-header">
+        <h2 class="text-gradient-ocean" id="packing-title">Checklist de Equipaje</h2>
+        <p id="packing-subtitle">Lo único que hay que traer es buena onda, ganas de surfar y...</p>
+      </div>
+      
+      <div class="packing-container" style="max-width: 800px; margin: 0 auto;">
+        
+        <div class="packing-grid-3" id="packing-grid-container">
+          <!-- Wetsuit Box -->
+          <div class="glass-card packing-card-box-static">
+            <div class="packing-icon-wrapper">
+              <img src="assets/gear-wetsuit.jpg" class="packing-gear-img" alt="Wetsuit">
+            </div>
+            <h4 class="packing-item-title">Wetsuit</h4>
+            <p class="packing-item-subtitle">Traje de Neopreno</p>
+          </div>
+          
+          <!-- Botitas Box -->
+          <div class="glass-card packing-card-box-static">
+            <div class="packing-icon-wrapper">
+              <img src="assets/gear-booties.jpg" class="packing-gear-img" alt="Botitas">
+            </div>
+            <h4 class="packing-item-title">Botitas</h4>
+            <p class="packing-item-subtitle">Protección para rocas</p>
+          </div>
+          
+          <!-- Leash Box -->
+          <div class="glass-card packing-card-box-static">
+            <div class="packing-icon-wrapper">
+              <img src="assets/gear-leash.jpg" class="packing-gear-img" alt="Leash">
+            </div>
+            <h4 class="packing-item-title">Leash</h4>
+            <p class="packing-item-subtitle">(opcional)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM FULL-WIDTH HERO DIVIDER: THE COOLEST -->
+  <div class="reveal poster-divider">
+    
+    <!-- Elegant Poster Border Frame -->
+    <div class="poster-divider-frame-1" style="position: absolute; top: 2rem; bottom: 2rem; left: 2rem; right: 2rem; border: 1px solid rgba(255, 255, 255, 0.2); pointer-events: none; z-index: 5;"></div>
+    <div class="poster-divider-frame-2" style="position: absolute; top: 2.75rem; bottom: 2.75rem; left: 2.75rem; right: 2.75rem; border: 1px dashed rgba(255, 255, 255, 0.1); pointer-events: none; z-index: 5;"></div>
+
+    <div class="poster-divider-content" style="z-index: 10; font-family: var(--font-title);">
+      <!-- Main Title -->
+      <h2 class="text-gradient-sunset" style="font-size: clamp(1.6rem, 5.5vw, 3.8rem); font-weight: 900; line-height: 1.1; margin-bottom: 0.5rem; display: block; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));">
+        California.SURFtrip_10.26<br><span class="emoji-text">🌟🌊</span>
+      </h2>
+      
+      <!-- Subtitle -->
+      <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--primary-ocean); margin-bottom: 2.5rem; font-weight: 700;">
+        September 10 - 20, 2026
+      </p>
+
+      <!-- Brought to you by... The Coolest -->
+      <div style="margin-bottom: 2.5rem;">
+        <p style="font-size: 0.9rem; font-weight: 300; color: #cbd5e1; text-transform: lowercase; letter-spacing: 0.1em; margin-bottom: 0.1rem; font-style: italic;">brought to you by...</p>
+        <h3 style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.5);" id="footer-divider-title">The Coolest</h3>
+      </div>
+
+      <!-- Tagline -->
+      <blockquote style="border: none; padding: 0; margin: 0 auto 3rem auto; max-width: 600px;">
+        <p style="font-size: clamp(0.95rem, 2vw, 1.25rem); color: #f1f5f9; font-style: italic; line-height: 1.6; font-family: var(--font-body); text-shadow: 0 2px 5px rgba(0,0,0,0.5);" id="footer-divider-quote">
+          "Escabulléndose por la rendija del destino rumbo a un océano brillante..."
+        </p>
+      </blockquote>
+
+      <!-- Billing Block Credits -->
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 1.5rem; font-family: var(--font-body); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: #94a3b8; line-height: 1.8;">
+        <p style="margin-bottom: 0.5rem; font-weight: 600; color: #cbd5e1; letter-spacing: 0.2em;">
+          Starring: Javier Ricaud • Leonardo Colistro • Gonzalo Caride • Pablo Tórtora
+        </p>
+        <p style="font-size: 0.55rem; opacity: 0.85;">
+          Shot on the Pacific Coast Highway • North to South Exploration • All Rights Reserved to Del Mangrullo
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <ul class="footer-socials">
+        <li><a href="#basecamps">Campamentos</a></li>
+        <li><a href="#surf-spots">Picos</a></li>
+        <li><a href="#crew">Tripulación</a></li>
+        <li><a href="#packing">Equipaje</a></li>
+      </ul>
+      <p class="footer-copy" id="footer-copy">© 2026 California Surf Trip - Parcela 61 & 206. Creado para el crew.</p>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS for Map -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <!-- Config Texts JS -->
+  <script src="texts.js"></script>
+  
+  <!-- Custom JS -->
+  <script src="app.js"></script>
+</body>
+</html>
